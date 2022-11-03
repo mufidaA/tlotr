@@ -16,10 +16,10 @@ const Navbar = () => {
   
         <NavMenu>
           <NavLink to='/book' activestyle="true">
-            The books
+            TLOTR books
           </NavLink>
-          <NavLink to='/movie' activestyle="true">
-            Movies
+          <NavLink to='/character' activestyle="true">
+            TLOTR characters
           </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}

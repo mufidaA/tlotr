@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages';
 import Book from './pages/book';
-import Movie from './pages/movie';
+import Character from './pages/character';
 
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/' exact element={<Home/>} />
-        <Route path='/movie' element={<Movie/>} />
+        <Route path='/character' element={<Character/>} />
         <Route path='/book' element={<Book/>} />
       </Routes>
     </Router>

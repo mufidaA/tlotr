@@ -1,13 +1,11 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import headers from './headers';
   
-const Movie = () => {
+const Character = () => {
   const [data,setData]=useState();
   const [query, setQuery] = useState("")
-  const headers = {
-    'Accept': 'application/json',
-    'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
-  };
+  
   const getData = async () => {
     await fetch('https://the-one-api.dev/v2/character', {
       headers: headers
@@ -51,4 +49,4 @@ const Movie = () => {
     );
   };
   
-export default Movie;
+export default Character;

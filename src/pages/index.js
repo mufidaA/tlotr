@@ -1,16 +1,14 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './index.css';
+import headers from './headers';
   
 const Home = () => {
   const [quote, setQuote] = useState()
   const [character, setCharacter] = useState();
 
   useEffect(() => {
-    const headers = {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
-    };
+    
     const fetchData = async () => {
       try {
           

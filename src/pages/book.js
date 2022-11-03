@@ -1,5 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import headers from './headers';
+
 
 const ReadMore = ({ children }) => {
   const text = children;
@@ -19,10 +21,10 @@ const ReadMore = ({ children }) => {
 
 const Book = () => {
   const [data,setData]=useState();
-  const headers = {
+  /*const headers = {
     'Accept': 'application/json',
     'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
-  };
+  };*/
 
   const combine = (bid, data) => {
     var arr=[];
@@ -70,7 +72,7 @@ const Book = () => {
           <div className="App">
           {data && data.bo.docs.map((item) => 
               <div key={item._id}> {item.name} 
-              <ReadMore> - {combine(item._id,data).map((chapName) => <span> {chapName} </span> )}</ReadMore></div>
+              <ReadMore> - {combine(item._id,data).map((chapName, index) => <span> {index+1}. {chapName} </span> )}</ReadMore></div>
           ) 
           }
           </div>
