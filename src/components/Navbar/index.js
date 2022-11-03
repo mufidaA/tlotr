@@ -25,7 +25,7 @@ const Navbar = () => {
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/'>show other quote</NavBtnLink>
+          <NavBtnLink to='/'>Show me a TLOTR quote</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
