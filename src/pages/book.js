@@ -23,22 +23,22 @@ const Book = () => {
     'Accept': 'application/json',
     'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
   };
-  var combine = () => {
-    if (data.bo.docs.id === undefined) {
-      return "empty";
-    }
-    for (var i = 0; i < data.ch.lenght; i++) {
-      if (data.ch.docs[i]._id === data.bo.docs._id) {
-        return "test" + data.ch.docs[i].chapterName;
+
+  const combine = (bid, data) => {
+    var arr=[];
+    for (var i = 0; i < data.ch.docs.length; i++) {
+      if (data.ch.docs[i].book === bid) {
+        arr.push(data.ch.docs[i].chapterName);
       }
     }
-    return "Empty!";
+    return arr;
   };
+
   const getData = async () => {
       fetch('https://the-one-api.dev/v2/book', {
         headers: headers
         })
-        .then( async function(response) {
+        .then(async function(response) {
           console.log(response)
           const rawChapters = await fetch('https://the-one-api.dev/v2/chapter',/*?book=' + books._id,*/ {
             headers: headers
@@ -53,10 +53,10 @@ const Book = () => {
         });
     }
     useEffect(()=>{
-     // getData()
+      getData()
     },[])
 
-    return (
+    return(
       <div
         style={{
           backgroundImage: 'url("https://images.freecreatives.com/wp-content/uploads/2016/03/Old-taped-Book-Pages-Texture.jpg")',
@@ -70,7 +70,7 @@ const Book = () => {
           <div className="App">
           {data && data.bo.docs.map((item) => 
               <div key={item._id}> {item.name} 
-              <ReadMore>dgfgdfvsdcdfvfb {combine(item._id)}</ReadMore></div>
+              <ReadMore> - {combine(item._id,data).map((chapName) => <span> {chapName} </span> )}</ReadMore></div>
           ) 
           }
           </div>
