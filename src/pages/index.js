@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import './index.css';
   
 const Home = () => {
   const [quote, setQuote] = useState()
@@ -45,37 +46,9 @@ const Home = () => {
         height: '100vh'
       }}
     >
-      <div
-      style={{
-        fontFamily: '"Special Elite", cursive',
-        color: '#f5f5f5',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}  
-      >
-        <blockquote
-        style={
-          {
-              fontWeight: '100',
-              fontSize: '2rem',
-              maxWidth: '600px',
-              lineheight: '1.4',
-              position: 'relative',
-              margin: '0',
-              padding: '.5rem',
-            
-          }
-        }
-        >“{quote}”</blockquote>
-        <cite
-          style={
-            {
-              lineHeight: '3',
-              textAlign: 'left'
-            }}
-        >- {character}</cite>
+      <div>
+        <blockquote>{quote}</blockquote>
+        <cite>- {character}</cite>
       </div>
       
     </div>

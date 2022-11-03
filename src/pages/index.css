@@ -8,7 +8,7 @@ html, body {
 
 body {
 	font-family: 'Special Elite', cursive;
-	color: #d3d3de;
+    color: #ffffff;
 }
 
 blockquote {
@@ -17,14 +17,14 @@ blockquote {
 	max-width: 600px;
 	line-height: 1.4;
 	position: relative;
-	margin: 0;
+	margin-top: 150px;
+    margin-left: 150px;
 	padding: .5rem;
 }
 
 blockquote:before,
 blockquote:after {
 	position: absolute;
-	color: #f1efe6;
 	font-size: 8rem;
 	width: 4rem;
 	height: 4rem;
@@ -45,6 +45,7 @@ blockquote:after {
 cite {
 	line-height: 3;
 	text-align: left;
+    margin-left: 60%;
 }
 
 footer {

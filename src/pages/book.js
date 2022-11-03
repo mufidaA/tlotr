@@ -1,69 +1,84 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-  
-const Book = () => {
-  const [book, setBook] = useState()
-  const [chapter, setChapter] = useState();
 
-  useEffect(() => {
-    const headers = {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
-    };
-    const fetchData = async () => {
-      try {
-          
-        const rawBooks = await fetch('https://the-one-api.dev/v2/book', {
-        headers: headers
-        });
-        const books = await rawBooks.json();
-        const book = books.docs[Math.floor(Math.random() * books.docs.length)];
-        setBook(book.name);
-        const rawChapters = await fetch('https://the-one-api.dev/v2/chapter?book=' + book._id, 
-        { headers: headers });
-        const chapters = await rawChapters.json();
-        var output = "";
-        for (let i = 0; i < chapters.docs.length; i++) {
-          const chapter = chapters.docs[i];
-          output += 'Chapter ' + (i+1) + " " + chapter.chapterName;
-        }
-        setChapter(<div>{output}</div>);
-          
-        
-      } catch (error) {
-        alert(error);
-        
-      }
-    };
-
-    fetchData();
-  }, []);
+const ReadMore = ({ children }) => {
+  const text = children;
+  const [isReadMore, setIsReadMore] = useState(true);
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
   return (
-    <div
-      style={{
-        backgroundImage:'url("https://images.freecreatives.com/wp-content/uploads/2016/03/Old-taped-Book-Pages-Texture.jpg")',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        display: 'flex',
-        alignItems: 'Right',
-        height: '100vh',
-        
-      }}
-    >
-      <div>
-        <h1>{book}</h1>
-        <div style={{
-        fontFamily: '"Special Elite", cursive',
-        color: '#f5f5f5',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}  >{chapter}</div>
-      </div>
-    </div>
+    <p className="text">
+      {isReadMore ? text.slice(0,0) : text}
+      <span onClick={toggleReadMore} className="read-or-hide">
+        {isReadMore ? "..click to see book chapters" : " show less"}
+      </span>
+    </p>
   );
 };
+
+const Book = () => {
+  const [data,setData]=useState();
+  const headers = {
+    'Accept': 'application/json',
+    'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
+  };
+  var combine = () => {
+    if (data.bo.docs.id === undefined) {
+      return "empty";
+    }
+    for (var i = 0; i < data.ch.lenght; i++) {
+      if (data.ch.docs[i]._id === data.bo.docs._id) {
+        return "test" + data.ch.docs[i].chapterName;
+      }
+    }
+    return "Empty!";
+  };
+  const getData = async () => {
+      fetch('https://the-one-api.dev/v2/book', {
+        headers: headers
+        })
+        .then( async function(response) {
+          console.log(response)
+          const rawChapters = await fetch('https://the-one-api.dev/v2/chapter',/*?book=' + books._id,*/ {
+            headers: headers
+            })
+          const chapters = await rawChapters.json();
+          const books = await response.json();
+          var mergedObj = { ch: chapters, bo: books };
+          return mergedObj;
+        }).then(function(myJson) {
+          console.log(myJson);
+          setData(myJson)
+        });
+    }
+    useEffect(()=>{
+     // getData()
+    },[])
+
+    return (
+      <div
+        style={{
+          backgroundImage: 'url("https://images.freecreatives.com/wp-content/uploads/2016/03/Old-taped-Book-Pages-Texture.jpg")',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          display: 'flex',
+          alignItems: 'Right',
+          height: '100vh',
+        }}>
+          <div className="App">
+          {data && data.bo.docs.map((item) => 
+              <div key={item._id}> {item.name} 
+              <ReadMore>dgfgdfvsdcdfvfb {combine(item._id)}</ReadMore></div>
+          ) 
+          }
+          </div>
+      </div>
+      
+    );
+  
+  
+}
   
 export default Book;
