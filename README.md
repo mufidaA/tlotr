@@ -1,7 +1,12 @@
 # TLOTR App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-the website, retrieves some free data from  https://apilist.fun/. For example, a list
+The website, retrieves some free data from  https://apilist.fun/. For example, a list
 of (free) APIs is available on https://apilist.fun/. 
+To add the key open headers.js  (path src\pages\headers.js) and paste the key to the Authorization field right after 'Bearer '
+                      const headers = {
+                          'Accept': 'application/json',
+                          'Authorization': 'Bearer keyhere'
+                        };
 
 ## Components
 
