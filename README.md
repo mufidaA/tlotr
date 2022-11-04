@@ -1,70 +1,22 @@
-# Getting Started with Create React App
-
+# TLOTR App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The website, retrieves some free data from  https://apilist.fun/.
+To add the key open headers.js  (path src\pages\headers.js) and paste the key to the Authorization field right after 'Bearer '
+                      const headers = {
+                          'Accept': 'application/json',
+                          'Authorization': 'Bearer keyhere'
+                        };
 
-## Available Scripts
+## Components
 
-In the project directory, you can run:
+### Landing page
+The landing page (home) generates a random quote that were said by a lord of the rings charcter, first a randemized quote is fetched then its id is used to link it to the charchter who the quote belongs too, a button "show me TLOTR quote" will redirect the user to the landing page and show new quote. if the user is already seeing a quote the button is neutral.
 
-### `npm start`
+### TLOTR book
+The book page fetches the lord of the rings books data and the chapters data then links them on id, in UI each book will have a show more tag that allows the use to see the chapters of each book.
+### TLOTR charcters
+The charcaters page retrevies the data about TLOTR charcters I have choosent to display the neam, the race, the gender and the birth. the feltering allows to filter the charcters according to the race (human, elf, hobbit...)
+### About
+As the idea of the App is all around The Lord Of The Rings tale, I added an about page that tells basic inforations about the book.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
