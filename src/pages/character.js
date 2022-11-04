@@ -22,30 +22,35 @@ const Character = () => {
    getData()
   },[])
     return (
-      <div
+      <><div
         style={{
-          backgroundColor: 'black',
           display: 'flex',
           justifyContent: 'Right',
           alignItems: 'Right',
-          height: '100vh'
         }}
       >
-        
-        <div><input onChange={event => setQuery(event.target.value)} placeholder="Enter Post Title"/></div>
-
-          <div>
-            {data  && data.slice(0, 20).filter(item => {
-                      if (query === '') {
-                        return item;
-                      } else if (item.race.toLowerCase().includes(query.toLowerCase())) {
-                        return item;
-                      }
-                    }).map((item, index) => 
-              <><div key={item._id}>Name: {item.name}</div><div key={index}>Race: {item.race}</div></>)}
-          </div>
-        
       </div>
+      <div id='discription'>
+        <p>Welcome to the book of over 900 of the  epic high-fantasy series, 
+        Type a race in the search to learn about all characters who belong to that race</p>
+        <input onChange={event => setQuery(event.target.value)} placeholder="Enter a TLOTR race" />
+      </div>
+        <div id='charContainer'>
+          {data && data.filter(item => {
+            if (query === '') {
+              return item;
+            } else if (item.race.toLowerCase().includes(query.toLowerCase())) {
+              return item;
+            }
+          }).map((item, index) => <>
+          <div id='charitems' key={index}>
+              <p>Name: {item.name}</p>
+              <p key={index}>Race: {item.race}</p>
+              <p key={index}>Gender: {item.gender}</p>
+              <p key={index}>Birth: {item.birth}</p>
+          </div>
+          </>)}
+        </div></>
     );
   };
   

@@ -61,15 +61,11 @@ const Book = () => {
     return(
       <div
         style={{
-          backgroundImage: 'url("https://images.freecreatives.com/wp-content/uploads/2016/03/Old-taped-Book-Pages-Texture.jpg")',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
+
           display: 'flex',
-          alignItems: 'Right',
-          height: '100vh',
+        
         }}>
-          <div className="App">
+          <div id='book'>
           {data && data.bo.docs.map((item) => 
               <div key={item._id}> {item.name} 
               <ReadMore> - {combine(item._id,data).map((chapName, index) => <span> {index+1}. {chapName} </span> )}</ReadMore></div>

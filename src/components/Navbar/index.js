@@ -21,6 +21,9 @@ const Navbar = () => {
           <NavLink to='/character' activestyle="true">
             TLOTR characters
           </NavLink>
+          <NavLink to='/about' activestyle="true">
+            About
+          </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>

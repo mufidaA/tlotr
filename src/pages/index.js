@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import './index.css';
 import headers from './headers';
+import media1 from './NicePng_lord-of-the-rings_8443340.png';
   
 const Home = () => {
   const [quote, setQuote] = useState()
@@ -30,26 +31,28 @@ const Home = () => {
       }
     };
 
-    //fetchData();
+    fetchData();
   }, []);
 
   return (
-    <div
+    <><div
       style={{
-        backgroundImage:'url("https://media.pocketgamer.com/artwork/na-31596-1629889121/Lord-Of-The-Rings-Rise-To-War-One-Ring.jpg")',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
         display: 'flex',
-        height: '100vh'
       }}
     >
       <div>
         <blockquote>{quote}</blockquote>
         <cite>- {character}</cite>
       </div>
-      
+
     </div>
+    <img src={media1} alt="media"  style={{
+      width: '100%',
+      height: 'auto',
+      aspectRatio: 'attr(width) / attr(height)',
+      position: 'fixed',
+      bottom: '0',
+    }} /></>
   );
 };
   
