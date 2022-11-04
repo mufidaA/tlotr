@@ -1,5 +1,5 @@
 const headers = {
     'Accept': 'application/json',
-    'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
+    'Authorization': 'Bearer keyhere'
   };
   export default headers

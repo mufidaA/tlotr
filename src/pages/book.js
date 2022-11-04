@@ -21,10 +21,6 @@ const ReadMore = ({ children }) => {
 
 const Book = () => {
   const [data,setData]=useState();
-  /*const headers = {
-    'Accept': 'application/json',
-    'Authorization': 'Bearer 9teFKbr4uHi4moGhA6-5'
-  };*/
 
   const combine = (bid, data) => {
     var arr=[];
