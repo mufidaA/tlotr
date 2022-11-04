@@ -1,5 +1,5 @@
 const headers = {
     'Accept': 'application/json',
-    'Authorization': 'Bearer '
+    'Authorization': 'Bearer pasteKeyHere'
   };
   export default headers
